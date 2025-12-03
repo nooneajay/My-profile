@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Profile App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle, #0a0a0a, #000000);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .card {
+      background: #111111;
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+      text-align: center;
+      width: 340px;
+      border: 1px solid rgba(0,255,255,0.2);
+    }
+    .pfp {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin: 0 auto 15px auto;
+      object-fit: cover;
+      border: 3px solid cyan;
+      box-shadow: 0 0 12px cyan;
+    }
+    .name {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .bio {
+      font-size: 17px;
+      opacity: 0.85;
+      margin-bottom: 28px;
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .btn {
+      background: #0f0f0f;
+      padding: 15px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: white;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: 1px solid rgba(0,255,255,0.3);
+      transition: 0.25s ease;
+      box-shadow: 0 0 10px rgba(0,255,255,0.15);
+    }
+    .btn:hover {
+      background: #001f1f;
+      transform: scale(1.06);
+      box-shadow: 0 0 18px cyan;
+      border-color: cyan;
+    }
+    .small {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="pfp" src="https://i.imgur.com/4ZQZ4bS.jpeg" alt="Profile" />
+    <div class="name">Your Name</div>
+    <div class="bio">Your bio goes here. Something short and cool.</div>
+
+    <div class="buttons">
+      <a class="btn" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a class="btn" href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-youtube"></i> YouTube
+      </a>
+      <a class="btn" href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+      <a class="btn" href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook"></i> Facebook
+      </a>
+    </div>
+
+    <div class="small">Tip: Edit the file to replace the name, bio and links.</div>
+  </div>
+</body>
+</html>
