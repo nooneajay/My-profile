@@ -1,143 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ajay's Profile</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-      background: black;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajay's Profile</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  body { margin:0; padding:0; font-family: Arial, sans-serif; overflow: hidden; background: black; }
 
-    /* Video Background */
-    .video-bg iframe {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      z-index: -1;
-    }
+  /* Video Background */
+  .video-bg video {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
 
-    /* Card */
-    .card {
-      width: 350px;
-      background: rgba(0,0,0,0.2);
-      padding: 35px;
-      border-radius: 25px;
-      text-align: center;
-      animation: fadeIn 1s ease;
-      position: relative;
-      z-index: 1;
-    }
+  /* Card */
+  .card {
+    width: 350px;
+    background: rgba(0,0,0,0.2);
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+    position: relative;
+    z-index: 1;
+    margin: 50px auto;
+  }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  .pfp {
+    width:120px; height:120px; border-radius:50%; object-fit:cover;
+    border:3px solid rgba(255,0,0,0.8);
+    box-shadow:0 0 20px rgba(255,0,0,0.8),0 0 40px rgba(255,0,0,0.5);
+    margin-bottom:15px; animation: glowPulse 2s infinite alternate, popIn 0.8s ease;
+  }
+  @keyframes glowPulse { 0% { box-shadow:0 0 15px rgba(255,0,0,0.6),0 0 30px rgba(255,0,0,0.4); } 100% { box-shadow:0 0 25px rgba(255,0,0,0.9),0 0 50px rgba(255,0,0,0.6); } }
+  @keyframes popIn { 0% { transform:scale(0.7); opacity:0; } 100% { transform:scale(1); opacity:1; } }
 
-    /* Profile pic red glow */
-    .pfp {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid rgba(255,0,0,0.8);
-      box-shadow: 0 0 20px rgba(255,0,0,0.8), 0 0 40px rgba(255,0,0,0.5);
-      margin-bottom: 15px;
-      animation: glowPulse 2s infinite alternate, popIn 0.8s ease;
-    }
+  .name { font-size:32px; font-weight:bold; margin-bottom:5px; color:#ff0000; letter-spacing:1px; }
+  .tagline { font-size:13px; opacity:0.7; margin-top:-5px; margin-bottom:20px; color:#ff4444; }
+  .bio { font-size:17px; opacity:0.85; margin-bottom:28px; color:#fff; text-shadow:0 0 8px rgba(255,0,0,0.6); }
 
-    @keyframes glowPulse {
-      0% { box-shadow: 0 0 15px rgba(255,0,0,0.6), 0 0 30px rgba(255,0,0,0.4); }
-      100% { box-shadow: 0 0 25px rgba(255,0,0,0.9), 0 0 50px rgba(255,0,0,0.6); }
-    }
+  .buttons { display:flex; flex-direction:column; gap:16px; }
+  .btn {
+    background: rgba(0,0,0,0.15);
+    padding:14px; border-radius:14px;
+    text-decoration:none; color:#ff0000;
+    font-size:18px; display:flex;
+    align-items:center; justify-content:center;
+    gap:12px; border:1px solid rgba(255,0,0,0.4);
+    box-shadow:0 0 10px rgba(255,0,0,0.2),0 0 20px rgba(255,0,0,0.1);
+    transition:0.3s ease;
+  }
+  .btn:hover { transform:scale(1.08); box-shadow:0 0 25px rgba(255,0,0,0.9),0 0 50px rgba(255,0,0,0.5); border-color:#ff0000; background:rgba(0,0,0,0.25); }
 
-    @keyframes popIn {
-      0% { transform: scale(0.7); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+  footer { margin-top:20px; opacity:0.6; font-size:12px; text-align:center; color:#fff; position:relative; z-index:1; text-shadow:0 0 5px rgba(255,0,0,0.5); }
 
-    .name {
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #ff0000;
-      letter-spacing: 1px;
-    }
-
-    .tagline {
-      font-size: 13px;
-      opacity: 0.7;
-      margin-top: -5px;
-      margin-bottom: 20px;
-      color: #ff4444;
-    }
-
-    .bio {
-      font-size: 17px;
-      opacity: 0.85;
-      margin-bottom: 28px;
-      color: #fff;
-      text-shadow: 0 0 8px rgba(255,0,0,0.6);
-    }
-
-    /* Buttons */
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .btn {
-      background: rgba(0,0,0,0.15);
-      padding: 14px;
-      border-radius: 14px;
-      text-decoration: none;
-      color: #ff0000;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      border: 1px solid rgba(255,0,0,0.4);
-      box-shadow: 0 0 10px rgba(255,0,0,0.2), 0 0 20px rgba(255,0,0,0.1);
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(255,0,0,0.9), 0 0 50px rgba(255,0,0,0.5);
-      border-color: #ff0000;
-      background: rgba(0,0,0,0.25);
-    }
-
-    footer {
-      margin-top: 20px;
-      opacity: 0.6;
-      font-size: 12px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 0 5px rgba(255,0,0,0.5);
-    }
-  </style>
+  /* Play Button */
+  #playBtn {
+    position: relative;
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid rgba(255,0,0,0.8);
+    border-radius: 20px;
+    background: rgba(0,0,0,0.3);
+    color: #ff0000;
+    cursor: pointer;
+    text-shadow: 0 0 5px rgba(255,0,0,0.7);
+    box-shadow: 0 0 15px rgba(255,0,0,0.5);
+    transition: 0.3s;
+  }
+  #playBtn:hover { background: rgba(0,0,0,0.5); transform: scale(1.05); }
+</style>
 </head>
-
 <body>
 
-  <!-- Video Background -->
-  <div class="video-bg">
-    <iframe src="https://go.screenpal.com/player/cTl1DDnYeFV?ff=1&title=0&autoplay=1&muted=1&loop=1"
-            allowfullscreen="true" scrolling="no">
-    </iframe>
+<!-- Video Background -->
+<div class="video-bg">
+  <video id="bgVideo" loop playsinline>
+    <source src="https://raw.githubusercontent.com/nooneajay/main/VID_20250527_154043_187.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<!-- Profile Card -->
+<div class="card">
+  <img class="pfp" src="IMG_20250713_113245_931-modified.png" alt="Profile">
+  <div class="name">No.1 Ajay !!</div>
+  <div class="tagline">Creator • Student • Dreamer</div>
+  <div class="bio">I Love Fresh Air 💫✨</div>
+  <div class="buttons">
+    <a class="btn" href="https://www.instagram.com/kotl_immortal_ajay?igsh=MWdmaGRxYWhpejdpOQ==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    <a class="btn" href="https://youtube.com/@infinitypowerverse?si=XTwK2K3ajFiEncM6" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+    <a class="btn" href="https://t.me/no1narutouzumaki" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+    <a class="btn" href="https://www.facebook.com/share/1F9x1RW5Kf/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+  </div>
+
+  <!-- Play Button Below Buttons -->
+  <button id="playBtn">▶ Play Video</button>
+</div>
+
+<footer>Made with ❤️ by Ajay</footer>
+
+<script>
+  const video = document.getElementById('bgVideo');
+  const playBtn = document.getElementById('playBtn');
+
+  playBtn.addEventListener('click', () => {
+    video.play();
+    video.muted = false; // unmute sound
+    playBtn.style.display = 'none'; // hide button
+  });
+</script>
+
+</body>
+</html>    </iframe>
   </div>
 
   <!-- Profile Card -->
