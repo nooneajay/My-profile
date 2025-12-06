@@ -10,25 +10,31 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-image: url('https://i.ibb.co/Q7cnrKnP/c0e92530-c771-4ca2-b44e-4a330113ad80.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
       overflow: hidden;
+      background: black;
     }
 
+    /* Video Background */
+    .video-bg iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      z-index: -1;
+    }
+
+    /* Card */
     .card {
       width: 350px;
-      background: rgba(0, 0, 0, 0.15); /* semi-transparent */
+      background: rgba(0,0,0,0.2);
       padding: 35px;
       border-radius: 25px;
       text-align: center;
       animation: fadeIn 1s ease;
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes fadeIn {
@@ -36,21 +42,21 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Profile picture with neon glow animation */
+    /* Profile pic red glow */
     .pfp {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid rgba(0,255,255,0.6);
-      box-shadow: 0 0 20px rgba(0,255,255,0.8), 0 0 40px rgba(0,255,255,0.5);
+      border: 3px solid rgba(255,0,0,0.8);
+      box-shadow: 0 0 20px rgba(255,0,0,0.8), 0 0 40px rgba(255,0,0,0.5);
       margin-bottom: 15px;
       animation: glowPulse 2s infinite alternate, popIn 0.8s ease;
     }
 
     @keyframes glowPulse {
-      0% { box-shadow: 0 0 15px rgba(0,255,255,0.6), 0 0 30px rgba(0,255,255,0.4); }
-      100% { box-shadow: 0 0 25px rgba(0,255,255,0.9), 0 0 50px rgba(0,255,255,0.6); }
+      0% { box-shadow: 0 0 15px rgba(255,0,0,0.6), 0 0 30px rgba(255,0,0,0.4); }
+      100% { box-shadow: 0 0 25px rgba(255,0,0,0.9), 0 0 50px rgba(255,0,0,0.6); }
     }
 
     @keyframes popIn {
@@ -62,7 +68,7 @@
       font-size: 32px;
       font-weight: bold;
       margin-bottom: 5px;
-      color: #00ffff;
+      color: #ff0000;
       letter-spacing: 1px;
     }
 
@@ -71,6 +77,7 @@
       opacity: 0.7;
       margin-top: -5px;
       margin-bottom: 20px;
+      color: #ff4444;
     }
 
     .bio {
@@ -78,36 +85,37 @@
       opacity: 0.85;
       margin-bottom: 28px;
       color: #fff;
+      text-shadow: 0 0 8px rgba(255,0,0,0.6);
     }
 
+    /* Buttons */
     .buttons {
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
 
-    /* Transparent buttons with neon glow */
     .btn {
-      background: rgba(0,0,0,0.1); /* 90% transparent */
+      background: rgba(0,0,0,0.15);
       padding: 14px;
       border-radius: 14px;
       text-decoration: none;
-      color: white;
+      color: #ff0000;
       font-size: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
-      border: 1px solid rgba(0,255,255,0.4);
-      box-shadow: 0 0 10px rgba(0,255,255,0.2), 0 0 20px rgba(0,255,255,0.1);
+      border: 1px solid rgba(255,0,0,0.4);
+      box-shadow: 0 0 10px rgba(255,0,0,0.2), 0 0 20px rgba(255,0,0,0.1);
       transition: 0.3s ease;
     }
 
     .btn:hover {
       transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(0,255,255,0.9), 0 0 50px rgba(0,255,255,0.5);
-      border-color: #00ffff;
-      background: rgba(0,0,0,0.15);
+      box-shadow: 0 0 25px rgba(255,0,0,0.9), 0 0 50px rgba(255,0,0,0.5);
+      border-color: #ff0000;
+      background: rgba(0,0,0,0.25);
     }
 
     footer {
@@ -116,12 +124,23 @@
       font-size: 12px;
       text-align: center;
       color: #fff;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 0 5px rgba(255,0,0,0.5);
     }
-
   </style>
 </head>
 
 <body>
+
+  <!-- Video Background -->
+  <div class="video-bg">
+    <iframe src="https://go.screenpal.com/player/cTl1DDnYeFV?ff=1&title=0&autoplay=1&muted=1&loop=1"
+            allowfullscreen="true" scrolling="no">
+    </iframe>
+  </div>
+
+  <!-- Profile Card -->
   <div class="card">
     <img class="pfp" src="IMG_20250713_113245_931-modified.png" alt="Profile">
     <div class="name">No.1 Ajay !!</div>
@@ -144,5 +163,6 @@
   </div>
 
   <footer>Made with ❤️ by Ajay</footer>
+
 </body>
 </html>
